@@ -15,5 +15,6 @@ El objetivo de este proyecto es la elaboración de un programa que simule la ***
 Librerías Utilizadas
 ---
 
-1. Qt + PyQt
-2. [fluidsynth](https://code.google.com/p/mingus/wiki/tutorialFluidsynth)
+1. PyQt5
+2. [mingus](http://bspaans.github.io/python-mingus/index.html)
+3. [fluidsynth](https://code.google.com/p/mingus/wiki/tutorialFluidsynth)

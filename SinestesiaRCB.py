@@ -37,7 +37,7 @@ class App(QWidget):
         else:
             # event.key() == Qt.Key_2:
             #fluidsynth.play_Note(64,0,100)
-            subprocess.call(['python3', './app.py'])
+            subprocess.call(['python2', './app.py'])
             numero = event.key() - 48
             print("pulsado " + str(numero))
 
