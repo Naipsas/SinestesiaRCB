@@ -12,8 +12,21 @@ El objetivo de este proyecto es la elaboración de un programa que simule la ***
 3. El programa representará en pantalla un **trazo aleatorio de dicho color**. **Al mismo tiempo**, la nota será reproducida en el equipo.
 4. El trazo representado se desvanecerá pasado un breve lapso de tiempo.
 
+Uso
+---
+
+Una vez en funcionamiento, el programa reconocerá en la pantalla las diferentes teclas:
+
+1. Teclas del 0 al 9: corresponden a las notas de más grave a más agudas respectivamente.
+
+2. Tecla escape (ESC): termina la ejecución de los dos programas en ejecución (sonido.py y SinestesiaRCB.py)
+
 Cómo ejecutar el programa
 ---
+
+0. Antes de comenzar, lo primero que debe hacer es ejecutar el programa sonido.py con python2 (nunca python3.x). En linux seguramente necesite ser administrador (sudo).
+
+`sudo python sonido.py`
 
 1. Tanto en Linux como en Windows, debe ejecutar el programa SinestesiaRCB.py con python3 (o superior).
 
@@ -40,7 +53,7 @@ top
 # si ve el proceso pulseaudio en la lista, apunte su PID
 # salga de este comando pulsando la letra Q(uit) en su teclado
 kill -9 PID_del_proceso
-# Ahora puede volver a ejecutar SinestesiaRCB.py
+# Ahora puede volver a ejecutar SinestesiaRCB.py y sonido.py
 ```
 
 Librerías Utilizadas
