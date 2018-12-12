@@ -8,7 +8,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QCheckBox
 
-from Clases.Widget import Circle
+from Clases.Widget import Circle, Cross
 
 class App(QWidget):
 
@@ -42,7 +42,6 @@ class App(QWidget):
         else:
             numero = event.key() - 48
             self.s.sendto(bytes(str(numero), "utf-8"), (self.host, self.port))
-            #print(str(numero))
             self.paintOnScreen(numero)
 
     def paintOnScreen(self, number):
@@ -54,15 +53,14 @@ class App(QWidget):
         [7, 77, 96], \
         [13, 114, 99], \
         [10, 91, 33]]
-        """
-        [141, 147, 10]
-        [234, 234, 10]
-        [232, 158, 12]
-        [229, 14, 14]
-        [226, 16, 146]
-        """
-        lin_sizes = []
-        lin_colors = []
+
+        cross_sizes = [550, 500, 450, 300, 350]
+        cross_colors = [ \
+        [141, 147, 10], \
+        [234, 234, 10], \
+        [232, 158, 12], \
+        [229, 14, 14], \
+        [226, 16, 146] ]
 
         if (0 <= number) and (number < 5):
             # Circles
@@ -72,9 +70,7 @@ class App(QWidget):
 
         else:
             # Lines
-            pass
-
-        #time.sleep(3)
+            item = Cross(self, cross_sizes[number-5], cross_colors[number-5])
 
         # Vanish
 
