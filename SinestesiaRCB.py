@@ -1,15 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
+import time
 import socket
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtGui import QIcon
-
 import subprocess
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QCheckBox
 
-#from mingus.midi import fluidsynth
-#fluidsynth.init('/home/btc/Escritorio/DockerImages/Synesthesia/gfx/dani.opus',"alsa")
+from Clases.Widget import Circle
 
 class App(QWidget):
 
@@ -44,6 +43,45 @@ class App(QWidget):
             numero = event.key() - 48
             self.s.sendto(bytes(str(numero), "utf-8"), (self.host, self.port))
             #print(str(numero))
+            self.paintOnScreen(numero)
+
+    def paintOnScreen(self, number):
+
+        cir_sizes = [750, 650, 550, 450, 350]
+        cir_colors = [ \
+        [53, 6, 81], \
+        [4, 8, 79], \
+        [7, 77, 96], \
+        [13, 114, 99], \
+        [10, 91, 33]]
+        """
+        [141, 147, 10]
+        [234, 234, 10]
+        [232, 158, 12]
+        [229, 14, 14]
+        [226, 16, 146]
+        """
+        lin_sizes = []
+        lin_colors = []
+
+        if (0 <= number) and (number < 5):
+            # Circles
+            item = Circle(cir_sizes[number], cir_colors[number])
+            item.setParent(self)
+            item.show()
+
+        else:
+            # Lines
+            pass
+
+        #time.sleep(3)
+
+        # Vanish
+
+        # Delete Widget
+        #item.deleteLater()
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

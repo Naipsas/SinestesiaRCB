@@ -1,7 +1,9 @@
-from mingus.midi import fluidsynth
-from mingus.containers import Note
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import time
 import socket
+from mingus.midi import fluidsynth
+from mingus.containers import Note
 
 SF2 = '/home/btc/Escritorio/SinestesiaRCB/gfx/FluidR3_GM.sf2'
 
