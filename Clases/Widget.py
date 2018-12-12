@@ -23,16 +23,10 @@ class Circle(QWidget):
         self.center()
         self.initUI()
 
-        timeline = QTimeLine(1500, self)
+        timeline = QTimeLine(3000, self)
         timeline.setFrameRange(360, 0)
         timeline.frameChanged.connect(self.setLoadingAngle)
         timeline.start()
-
-        #time.sleep(2)
-
-        #timeline.setFrameRange(360, 0)
-        #timeline.frameChanged.connect(self.setLoadingAngle)
-        #timeline.start()
 
     def initUI(self):
 
@@ -110,7 +104,7 @@ class Line(QWidget):
         self.center()
         self.initUI()
 
-        timeline = QTimeLine(1500, self)
+        timeline = QTimeLine(3000, self)
         timeline.setFrameRange(size, 0)
         timeline.frameChanged.connect(self.setNextStep)
         timeline.start()
@@ -141,6 +135,21 @@ class Line(QWidget):
         painter = QtGui.QPainter(self)
         painter.setRenderHint(QtGui.QPainter.Antialiasing)
         drawingRect  = QRect(QtCore.QPoint(), self.rect().size() - 2*self.width*QtCore.QSize(1, 1))
+
+        if drawingRect.width() == 520:
+            painter.rotate(90)
+            painter.translate(0, -drawingRect.height());
+        elif drawingRect.width() == 470:
+            painter.rotate(60)
+            painter.translate(drawingRect.width() * (6/9), -drawingRect.height() * (6/9));
+        elif drawingRect.width() == 420:
+            painter.rotate(40)
+            painter.translate(drawingRect.width() * (4/9), -drawingRect.height() * (4/9));
+        elif drawingRect.width() == 370:
+            painter.rotate(20)
+            painter.translate(drawingRect.width() * (2/9), -drawingRect.height() * (2/9));
+        elif drawingRect.width() == 320:
+            pass
         drawingRect.moveCenter(self.rect().center())
 
         gradient = QtGui.QConicalGradient()
@@ -153,7 +162,6 @@ class Line(QWidget):
         pen = QtGui.QPen(QtGui.QBrush(gradient), self.width)
         pen.setCapStyle(QtCore.Qt.RoundCap)
         painter.setPen(pen)
-        #painter.drawArc(drawingRect, 90 * 16 - arcLengthApproximation, -self._loading_angle * 16)
         if self.side == "L":
             painter.drawLine(0,0, self.NextStep, self.NextStep)
         else:
