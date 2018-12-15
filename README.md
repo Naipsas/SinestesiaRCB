@@ -15,6 +15,15 @@ El objetivo de este proyecto es la elaboración de un programa que simule la ***
 Uso
 ---
 
+Se recomienda emplear el programa en Linux, ya que en windows deberá instalar la librería `fluidsynth` por su cuenta.
+
+Ejecute en Linux para instalar las librerías:
+
+```
+sudo apt-get install fluidsynth
+pip install mingus
+```
+
 Una vez en funcionamiento, el programa reconocerá en la pantalla las diferentes teclas:
 
 1. Teclas del 0 al 9: corresponden a las notas de más grave a más agudas respectivamente.
